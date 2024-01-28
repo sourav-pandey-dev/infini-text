@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .cart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+
+        .items-section {
+            width: 45%;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .divider {
+            border-left: 1px solid #7a2a2a7c;
+            height: 800px;
+            margin: 0 20px;
+        }
+
+        .items-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .items-list li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffc400;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b35f00;
+        }
+
+        nav ul {
+            list-style: none;
+            position: fixed;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 200px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #cart-icon {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        Cart Page </h1>
+    <hr>
+    <hr>
+    <div class="cart-container">
+        <div class="items-section">
+            <h2>Chosen Items</h2>
+            <ul id="chosen-items-list" class="items-list"></ul>
+        </div>
+        <div class="divider"></div>
+        <div class="items-section">
+            <h2>Buy Now</h2>
+            <ul id="buy-now-items-list" class="items-list"></ul>
+            <div>
+                <p>Total Price: $<span id="total-price">0.00</span></p>
+                <button onclick="payNow()">Pay Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const books = [
+            {
+                name: 'Clean Code', author: 'Robert C. Martin', price: 200, image: 'images/book1.jpeg'
+            },
+            {
+                name: 'Code Complete', author: 'Andy Hunt', price: 255
+                , image: 'images/book2.jpeg'
+            },
+            {
+                name: 'The Pragmatic Programmer', author: 'Dave Thomas', price: 224.99, image:
+                    'images/book3.jpeg'
+            },
+            { name: 'Code Complete', author: 'Steve McConnell', price: 209, image: 'images/book4.jpeg' },
+        ];
+        const chosenItemsList = document.getElementById('chosen-items-list');
+        const buyNowItemsList = document.getElementById('buy-now-items-list');
+        const totalPrice = document.getElementById('total-price');
+        function addToCart(item) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<img src="${item.image}" alt="${item.name}"
+width="50" height="50">
+<span>${item.name} -
+$${item.price.toFixed(2)}</span>`; const buyButton = document.createElement('button');
+            buyButton.innerText = 'Buy Now';
+            buyButton.onclick = function () {
+                buyNow(item);
+                listItem.remove();
+            };
+            listItem.appendChild(buyButton);
+            chosenItemsList.appendChild(listItem);
+            recalculateTotal();
+        }
+        function buyNow(item) {
+            const listItem = document.createElement('li');
+            listItem.innerText = `${item.name} - $${item.price.toFixed(2)}`;
+            const removeButton = document.createElement('button');
+            removeButton.innerText = 'Remove';
+            removeButton.onclick = function () {
+                listItem.remove();
+                recalculateTotal();
+            };
+            listItem.appendChild(removeButton); buyNowItemsList.appendChild(listItem);
+            recalculateTotal();
+        }
+        function recalculateTotal() {
+            let total = 0;
+            const allItems = [...buyNowItemsList.children];
+            allItems.forEach(item => {
+                const itemPrice = parseFloat(item.innerText.split('- $')[1]);
+                if (!isNaN(itemPrice)) {
+                    total += itemPrice;
+                }
+            });
+            totalPrice.innerText = total.toFixed(2);
+        }
+        books.forEach(item => {
+            addToCart(item);
+        });
+        function payNow() {
+            const total = parseFloat(totalPrice.innerText);
+            const message = `Payment of $${total.toFixed(2)} successful!`; alert(message);
+        }
+    </script>
+</body>
+
+</html>

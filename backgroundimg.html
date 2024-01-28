@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    background-color: rgb(59, 85, 85);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    background-image: url(images/image1.jpg);
+    background-repeat: repeat-x;
+    position: absolute;
+}
+
+.main {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: auto;
+    text-align: center;
+    margin: 300px;
+    margin-top: 100px;
+    color: aliceblue;
+    animation: slideBackground 15s infinite;
+}
+
+.header-text {
+    color: red;
+}
+
+@keyframes slideBackground {
+    0% {
+        background-image: url(images/book1.jpeg);
+    }
+
+    25% {
+        background-image: url(images/book2.jpeg);
+    }
+
+    50% {
+        background-image: url(images/book3.jpeg);
+    }
+
+    75% {
+        background-image: url(images/book4.jpeg);
+    }
+
+    100% {
+        background-image: url(images/book1.jpeg);
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="main">
+    
+        <h1>Welcome to InfiniTexts!</h1>
+
+        <h5>Dive into an endless ocean of knowledge with our vast and limitless collection. From age-old classics to
+            contemporary bestsellers, our shelves brim with tales, wisdom, and insights waiting to be uncovered.
+        </h5>
+
+        <li>📚 Why Choose InfiniTexts?</li>
+        <hr>
+        Limitless Learning: Our expansive digital shelves house thousands of texts across all genres and fields.
+        <br>
+        User-Friendly Experience: Easy-to-navigate interface, personalized reading recommendations, and intuitive
+        search capabilities. <br>
+        Eco-Friendly & Accessible: Save trees and access your favorite reads anytime, anywhere. <br>
+        Community-Centric: Engage with fellow readers, join book clubs, and participate in enlightening discussions.
+        <br>
+        Rediscover the Joy of Reading
+        Whether you're a curious novice or a seasoned bibliophile, InfiniTexts promises a reading journey like no
+        other. So, settle in with a good book and let your imagination roam free in our infinite world of texts.
+        <br>
+        <hr>
+        <li>🌟 Special Feature!</li>
+        Explore our "Author of the Month" section, celebrating the literary brilliance of renowned writers from
+        around the globe.
+
+        <li>📢 Join the InfiniTexts Community! </li>
+        Sign up today and embark on an endless reading adventure with us.
+
+    </div>
+</div>
+</body>
+</html>

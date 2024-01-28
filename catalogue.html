@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>catalogue page</title>
+    <style>
+ /* .catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; 
+    max-height: 400px; 
+    overflow: auto; 
+}
+
+.book {
+    border: 1px solid #ccc; 
+    padding: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book img {
+    width: 100%; 
+    max-height: 150px; 
+    object-fit: cover; 
+}
+
+.bookInfo {
+    margin-top: 10px; 
+}  */
+
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1>Catalogue</h1>
+
+        <div class="catalogue">
+            <div class="book">
+                <div class="img">
+
+                    <img src="images/book1.jpeg" alt="Book 1">
+                </div>
+                <div class="bookInfo">
+
+                    <h2>Clean Code</h2>
+                    <p>Author: Robert C. Martin</p>
+                    <p>Genre: A Handbook of Agile Software Craftsmanship</p>
+                    <p>Year: 2008</p>
+                    <div class="buy">
+                        <button class="cartBtn">add to cart</button>
+                        <button class="buyBtn">buy now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="img">
+
+                    <img src="images/book2.jpeg" alt="Book 2">
+                </div>
+                <div class="bookInfo">
+                
+                    <h2>Code Complete</h2>
+                    <p>Author: Steve McConnell</p>
+                    <p>Genre: Comprehensive Analysis of Software Construction</p>
+                    <p>Year: 1993</p>
+                    <div class="buy">
+                        <button class="cartBtn">add to cart</button>
+                        <button class="buyBtn">buy now</button>
+                    </div>
+                </div>
+                </div>
+            <div class="book">
+                <div class="img">
+
+                    <img src="images/book3.jpeg" alt="Book 2">
+                </div>
+                <div class="bookInfo">
+                
+                    <h2>The Pragmatic Programmer</h2>
+                    <p>Author: Andy Hunt and Dave Thomas</p>
+                    <p>Genre: core of modern software development</p>
+                    <p>Year: 1999</p>
+                    <div class="buy">
+                        <button class="cartBtn">add to cart</button>
+                        <button class="buyBtn">buy now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <div class="img">
+
+                    <img src="images/book4.jpeg" alt="Book 2">
+                </div>
+                <div class="bookInfo">
+                
+                    <h2>Code Complete</h2>
+                    <p>Author: Steve McConnell</p>
+                    <p>Genre: Comprehensive Analysis of Software Construction</p>
+                    <p>Year: 1993</p>
+                    <div class="buy">
+                        <button class="cartBtn">add to cart</button>
+                        <button class="buyBtn">buy now</button>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            var addToCartButtons = document.querySelectorAll('.cartBtn');
+
+            addToCartButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    addToCart(button);
+                });
+            });
+
+            function addToCart(button) {
+                var bookContainer = button.closest('.book');
+                var bookTitle = bookContainer.querySelector('h2').textContent;
+                var bookImageSrc = bookContainer.querySelector('.img img').src;
+
+// You can perform additional actions here if needed
+
+// Send data to the server or update local storage, etc.
+}
+});
+</script>
+    
+</body>
+</html>

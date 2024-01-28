@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            border: 3px solid peru;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 7px 7px 16px rgba(6, 3, 5, 1.2);
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .logo img {
+            height: 200px;
+            display: block;
+        }
+
+        .sitename h1 {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .navbar li {
+            list-style: none;
+            background-color: grey;
+            border: 1px solid rgb(95, 26, 26);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .navbar li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: aqua;
+            font-size: 25px;
+        }
+
+        .navbar li:hover {
+            transform: translateY(-3px);
+            background-color: rgb(102, 100, 100);
+        }
+
+        .navbar li:active {
+            transform: translateY(0);
+        }
+
+        .branch ul {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            width: fit-content;
+            margin: auto;
+            padding: auto;
+        }
+
+        .branch ul li {
+            list-style: none;
+            text-shadow: 2px 2px floralwhite;
+
+        }
+
+        .information {
+            height: 500px;
+            width: 900px;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/online book library logo.jpg" alt="library image">
+        </div>
+        <div class="sitename">
+            <h1>InfiniTexts- "For a vast, limitless collection".</h1>
+        </div>
+
+    </div>
+
+    <div class="mid">
+        <ul class="navbar">
+            <li><a href="infinitext.html">Home</a></li>
+            <li><a href="javascript:void(0);" onclick="loadPage('login.html')">Login</a></li>
+            <li><a href="javascript:void(0);" onclick="loadPage('registration.html')">Registration</a></li>
+            <li><a href="javascript:void(0);" onclick="loadPage('catalogue.html')">Catalogue</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="branch">
+            <ul>
+                <li>CSE</li>
+                <li>ME</li>
+                <li>ECE</li>
+                <li>CIVIL</li>
+                <li>EEE</li>
+            </ul>
+
+        </div>
+        <div class="information">
+            <h1>Welcome to InfiniTexts!</h1>
+
+            <h5>Dive into an endless ocean of knowledge with our vast and limitless collection. From age-old classics to
+                contemporary bestsellers, our shelves brim with tales, wisdom, and insights waiting to be uncovered.
+            </h5>
+
+            <li>📚 Why Choose InfiniTexts?</li>
+            <hr>
+            Limitless Learning: Our expansive digital shelves house thousands of texts across all genres and fields.
+            <br>
+            User-Friendly Experience: Easy-to-navigate interface, personalized reading recommendations, and intuitive
+            search capabilities. <br>
+            Eco-Friendly & Accessible: Save trees and access your favorite reads anytime, anywhere. <br>
+            Community-Centric: Engage with fellow readers, join book clubs, and participate in enlightening discussions.
+            <br>
+            Rediscover the Joy of Reading
+            Whether you're a curious novice or a seasoned bibliophile, InfiniTexts promises a reading journey like no
+            other. So, settle in with a good book and let your imagination roam free in our infinite world of texts.
+            <br>
+            <hr>
+            <li>🌟 Special Feature!</li>
+            Explore our "Author of the Month" section, celebrating the literary brilliance of renowned writers from
+            around the globe.
+
+            <li>📢 Join the InfiniTexts Community! </li>
+            Sign up today and embark on an endless reading adventure with us.
+
+        </div>
+    </div>
+
+
+    <script>
+        function loadPage(page) {
+            // Fetch the content of the specified page
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    // Set the content of the "information" div with the fetched data
+                    document.querySelector('.information').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading page:', error));
+        }
+    </script>
+</body>
+
+</html>
