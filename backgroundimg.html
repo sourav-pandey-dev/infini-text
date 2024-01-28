@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-    background-color: rgb(59, 85, 85);
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url(images/book1.jpeg);
+    animation: slideBackground 15s infinite;
 }
 
 .background {
@@ -20,18 +21,31 @@
 
 .main {
     position: relative;
-    background-repeat: no-repeat;
     background-size: auto;
     text-align: center;
-    margin: 300px;
-    margin-top: 100px;
+  margin: auto 300px;
     color: aliceblue;
-    animation: slideBackground 15s infinite;
+   background-color: rgba(0, 0, 0, 0.506);
+    border-radius: 30px;
 }
 
 .header-text {
     color: red;
 }
+/* Target even-numbered list items */
+li:nth-child(even) {
+    background-color: #000000;
+    color: #dddddd;
+    border-radius: 10px;
+}
+
+/* Target odd-numbered list items */
+li:nth-child(odd) {
+    background-color: #dddddd;
+    color: #000000;
+    border-radius: 10px;
+}
+
 
 @keyframes slideBackground {
     0% {
@@ -60,10 +74,12 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    
     <div class="main">
     
-        <h1>Welcome to InfiniTexts!</h1>
+       <div class="header-text">
+           <h1>Welcome to InfiniTexts!</h1>
+       </div> 
 
         <h5>Dive into an endless ocean of knowledge with our vast and limitless collection. From age-old classics to
             contemporary bestsellers, our shelves brim with tales, wisdom, and insights waiting to be uncovered.
